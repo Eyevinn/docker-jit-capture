@@ -7,7 +7,7 @@ A Docker container for an open source Just-In-Time Capture Origin featuring:
 
 The JIT Capture Origin Container is built on:
 
-- Ubuntu 16
-- Apache2.4
+- Ubuntu
+- Apache2
 - hlsorigin (https://pypi.python.org/pypi/hlsorigin)
 
