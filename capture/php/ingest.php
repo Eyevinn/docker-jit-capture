@@ -25,11 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" || $_SERVER['REQUEST_METHOD'] === 'PUT
   if (($stream = fopen('php://input', "r")) !== FALSE) {
     // Write to a temp location to avoid origin to read incomplete files
     $dest_fp = fopen($tmp_path, "w");
-    if ($ENABLE_ARCHIVE) {
-      $archive_fp = fopen($archive_path, "w");
-      if ($ENABLE_DEBUG) {
-        syslog(LOG_DEBUG, "Archiving $archive_path");
-      }
+    $archive_fp = fopen($archive_path, "w");
+    if ($ENABLE_DEBUG) {
+      syslog(LOG_DEBUG, "Archiving $archive_path");
     }
     while ($buf = fread($stream, 1024)) {
       fwrite($dest_fp, $buf);
