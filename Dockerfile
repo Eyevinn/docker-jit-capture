@@ -4,6 +4,10 @@ RUN apt-get update && apt-get install -y --force-yes \
   apache2 \
   libapache2-mod-php5 \
   curl
+RUN a2enmod rewrite
+RUN a2enmod allowmethods
+RUN a2enmod headers
+RUN a2enmod expires
 RUN pip install hlsorigin
 RUN mkdir -p /var/capture && \
   chown www-data.www-data /var/capture
